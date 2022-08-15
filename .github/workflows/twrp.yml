@@ -7,7 +7,7 @@ env:
   MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git
   BRANCH: twrp-9.0
   DEVICE: d2q
-  DT_LINK: https://github.com/mohammad92/android_device_samsung_d2q -b -android-11
+  DT_LINK: https://github.com/mohammad92/android_device_samsung_d2q -b android-11
   MANUFACTURER: samsung
   TARGET: recovery
   IMAGE: image
