@@ -42,7 +42,7 @@ jobs:
              
        - name: Build twrp
          run: |
-              cd work
+              cd twrp
               . build/envsetup.sh && lunch $OT$SYM$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET$IMAGE -j60
               zip twrp.zip /home/runner/twrp/Recovery_builder/Recovery_builder/twrp/out/target/product/$DEVICE/$TARGET$FORMAT
 
