@@ -4,27 +4,15 @@ on:
   workflow_dispatch:
 
 env:
-  # (required) twrp manifest 
-  MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git
-  # (required) manifest branch 
-  BRANCH: twrp-11
-  # (required) device codename i.e: sweet mojito.. 
-  DEVICE: m10lte
-  # (required) device tree link with branch 
-  DT_LINK: https://github.com/Hostfl/android_device_samsung_m10lte -b a11
-  # (required) who made your phone ? 
+  MANIFEST: https://github.com/minimal-manifest-twrp/platform_manifest_twrp_omni.git
+  BRANCH: twrp-9.0
+  DEVICE: d2q
+  DT_LINK: https://github.com/mohammad92/android_device_samsung_d2q -b -android-11
   MANUFACTURER: samsung
-  # (required) recovery partiton = recovery, else (no recovery partition): boot 
   TARGET: recovery
-  # dont change that
   IMAGE: image
-  # (required) depend of device tree if you see twrp_"codename".mk use twrp
-  # else (omni_"codename".mk): omni
   OT: twrp
-  # dont change that
   SYM: _
-  # (required) output format for some reason samsung phones need a custom mkbootimg
-  # which compress your recovery into .tar (default: .img / samsung + custom mkbootimg: .tar) 
   FORMAT: .img
 
 jobs:
@@ -46,8 +34,8 @@ jobs:
             
        - name: Adding and Sync source
          run: |   
-             mkdir work
-             cd work
+             mkdir twrp
+             cd twrp
              repo init -u $MANIFEST -b $BRANCH --depth=1              
              repo sync -c -j700 --force-sync --no-clone-bundle --no-tags
              git clone $DT_LINK --depth=1 --single-branch device/$MANUFACTURER/$DEVICE          
@@ -56,11 +44,11 @@ jobs:
          run: |
               cd work
               . build/envsetup.sh && lunch $OT$SYM$DEVICE-eng && export ALLOW_MISSING_DEPENDENCIES=true && mka $TARGET$IMAGE -j60
-              zip twrp.zip /home/runner/work/Recovery_builder/Recovery_builder/work/out/target/product/$DEVICE/$TARGET$FORMAT
+              zip twrp.zip /home/runner/twrp/Recovery_builder/Recovery_builder/twrp/out/target/product/$DEVICE/$TARGET$FORMAT
 
        - name: Save in artifact
          uses: actions/upload-artifact@v3
          with:
             name: recovery.zip
-            path: /home/runner/work/Recovery_builder/Recovery_builder/work/twrp.zip
+            path: /home/runner/twrp/Recovery_builder/Recovery_builder/twrp/twrp.zip
             retention-days: 5
