@@ -16,7 +16,7 @@ on:
 env:
   MANIFEST: https://github.com/PitchBlackTWRP/manifest_pb.git -b android-12.1
   DEVICE: ice
-  DT_LINK: https://github.com/twrpdtgen/android_device_xiaomi_ice
+  DT_LINK: https://github.com/h4ck3r-360/redmi-ice
   DT_PATH: device/xiaomi/ice
   TARGET: bootimage
   OT: omni_
@@ -24,7 +24,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.4
 
     steps:
        - name: Checkout
