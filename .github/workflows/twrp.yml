@@ -11,7 +11,7 @@ env:
   # (required) device codename i.e: sweet mojito.. 
   DEVICE: ice
   # (required) device tree link with branch if exists
-  DT_LINK: https://github.com/h4ck3r-360/redmi_ice
+  DT_LINK: https://github.com/h4ck3r-360/redmi-ice
   # (required) who made your phone ? 
   MANUFACTURER: xiaomi
   # (required) recovery partiton = recovery, else (no recovery partition): boot 
