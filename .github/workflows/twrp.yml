@@ -55,7 +55,7 @@ jobs:
        - name: Build twrp
          run: |
               cd work
-              export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch twrp_ice-eng
+              export ALLOW_MISSING_DEPENDENCIES=true; . build/envsetup.sh; lunch omni_ice-eng
               zip twrp.zip /home/runner/work/Recovery_builder/Recovery_builder/work/out/target/product/$DEVICE/$TARGET$FORMAT
 
        - name: Save in artifact
