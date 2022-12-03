@@ -11,7 +11,7 @@ env:
   # (required) device codename i.e: sweet mojito.. 
   DEVICE: ice
   # (required) device tree link with branch if exists
-  DT_LINK: https://github.com/twrpdtgen/android_device_xiaomi_ice
+  DT_LINK: https://github.com/leddaz-dump-stash/redmi_snow_dump/tree/missi-user-12-SP1A.210812.016-V13.0.11.0.SGMMIXM-release-keys/twrp-device-tree/xiaomi/ice
   # (required) who made your phone ? 
   MANUFACTURER: xiaomi
   # (required) recovery partiton = recovery, else (no recovery partition): boot 
