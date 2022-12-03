@@ -50,7 +50,7 @@ jobs:
              cd work
              repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1              
              repo sync
-             git clone https://h4ck3r-360/redmi-ice/device/xiaomi/ice           
+             git clone https://h4ck3r-360/xiaomi-device-tree           
              
        - name: Build twrp
          run: |
